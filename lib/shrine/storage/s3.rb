@@ -322,7 +322,7 @@ class Shrine
 
         if host
           uri = URI.parse(url)
-          uri.path = uri.path.match(/^\/#{bucket.name}/).post_match unless uri.host.include?(bucket.name)
+          uri.path = uri.path.match(/^\/#{bucket.name}/).post_match if uri.host.include?(bucket.name)
           url = URI.join(host, uri.request_uri).to_s
         end
 
